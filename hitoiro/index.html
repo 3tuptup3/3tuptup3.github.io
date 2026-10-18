@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ヒトイロ｜色だけ日記 ― 今日の気分を、色ひとつで。</title>
+<meta name="description" content="ヒトイロは、今日の気分を色1色で記録する日記アプリ。言葉はいりません。一年たつと、あなただけの色の模様ができあがります。登録不要・記録は端末の中だけ。">
+<link rel="canonical" href="https://3tuptup3.github.io/hitoiro/">
+<meta name="theme-color" content="#FAF8F4">
+<meta name="apple-itunes-app" content="app-id=6821360700">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ヒトイロ">
+<meta property="og:title" content="ヒトイロ｜色だけ日記">
+<meta property="og:description" content="今日の気分を、色ひとつで。一年分の色が、あなただけの模様に。">
+<meta property="og:url" content="https://3tuptup3.github.io/hitoiro/">
+<meta property="og:image" content="https://3tuptup3.github.io/hitoiro/img/ogp.jpg">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="img/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MobileApplication",
+  "name": "ヒトイロ",
+  "alternateName": "Hitoiro",
+  "description": "今日の気分を色1色で記録する日記アプリ",
+  "operatingSystem": "iOS",
+  "applicationCategory": "LifestyleApplication",
+  "installUrl": "https://apps.apple.com/app/id6821360700",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY" }
+}
+</script>
+<style>
+  :root {
+    --bg: #FAF8F4;
+    --paper: #FFFFFF;
+    --ink: #2A2826;
+    --sub: #6B665F;
+    --line: #E4DFD6;
+    --frame: #1F1E1C;
+    --radius: 20px;
+    --maru: "Zen Maru Gothic", "Hiragino Maru Gothic ProN", "Hiragino Sans", sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg) url("img/washi.jpg") repeat;
+    background-size: 256px;
+    color: var(--ink);
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
+    line-height: 1.8;
+    letter-spacing: .04em;
+    overflow-x: hidden;
+  }
+  img { max-width: 100%; height: auto; display: block; }
+  a { color: inherit; }
+  .wrap { width: min(1080px, 100% - 32px); margin-inline: auto; }
+
+  /* header */
+  .site-header { padding: 18px 0; }
+  .site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-family: var(--maru); font-weight: 700; font-size: 18px; }
+  .brand img { width: 36px; height: 36px; }
+  .brand small { font-weight: 500; font-size: 12px; color: var(--sub); }
+  .header-cta { font-size: 13px; text-decoration: none; padding: 8px 16px; border: 1px solid var(--ink); border-radius: 999px; white-space: nowrap; }
+  .header-cta:hover { background: var(--ink); color: var(--bg); }
+
+  /* app store button */
+  .store-btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: #000; color: #fff; text-decoration: none;
+    padding: 10px 22px 10px 18px; border-radius: 12px;
+    transition: transform .15s ease;
+  }
+  .store-btn:hover { transform: translateY(-2px); }
+  .store-btn svg { width: 26px; height: 26px; flex: none; }
+  .store-btn span { display: flex; flex-direction: column; line-height: 1.2; letter-spacing: 0; }
+  .store-btn small { font-size: 11px; opacity: .85; }
+  .store-btn strong { font-size: 20px; font-weight: 600; font-family: -apple-system, "Helvetica Neue", sans-serif; }
+
+  /* hero */
+  .hero { padding: 40px 0 72px; }
+  .hero .wrap { display: grid; grid-template-columns: 1fr 1.1fr; gap: 40px; align-items: center; }
+  .eyebrow { display: inline-block; font-family: var(--maru); font-weight: 700; font-size: 14px; color: var(--sub); border-bottom: 2px solid currentColor; padding-bottom: 2px; margin: 0 0 18px; }
+  .hero h1 { font-family: var(--maru); font-weight: 700; font-size: clamp(34px, 5.4vw, 56px); line-height: 1.35; letter-spacing: .06em; margin: 0 0 20px; }
+  .hero .lead { font-size: 16px; color: var(--sub); margin: 0 0 32px; max-width: 30em; }
+  .hero .note { font-size: 12px; color: var(--sub); margin: 14px 0 0; }
+
+  .stage { position: relative; aspect-ratio: 1 / 1; max-width: 560px; margin-inline: auto; width: 100%; }
+  .phone {
+    position: absolute; width: 44%;
+    background: var(--frame); padding: 2.2%; border-radius: 13% / 6.4%;
+    box-shadow: 0 24px 50px -18px rgba(40, 32, 20, .35);
+  }
+  .phone img { width: 100%; aspect-ratio: 600 / 1225; object-fit: cover; object-position: top; border-radius: 11% / 5.4%; background: var(--bg); transition: opacity .35s ease; }
+  .phone.p1 { left: 0; top: 10%; transform: rotate(-5deg); z-index: 1; }
+  .phone.p2 { left: 28%; top: 0; z-index: 3; }
+  .phone.p3 { right: 0; top: 10%; transform: rotate(5deg); z-index: 2; }
+  .swap img.fading { opacity: 0; }
+
+  .themes { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 28px; padding: 0; list-style: none; }
+  .themes button {
+    display: inline-flex; align-items: center; gap: 8px;
+    font: inherit; font-size: 13px; color: var(--ink);
+    background: rgba(255, 255, 255, .7); border: 1px solid var(--line); border-radius: 999px;
+    padding: 6px 14px 6px 6px; cursor: pointer;
+  }
+  .themes button[aria-pressed="true"] { border-color: var(--ink); background: #fff; }
+  .themes i { width: 22px; height: 22px; border-radius: 50%; display: block; }
+  .themes-label { text-align: center; font-size: 12px; color: var(--sub); margin: 0; }
+
+  /* color strip divider */
+  .strip { display: grid; grid-template-columns: repeat(28, 1fr); height: 14px; }
+  .strip span { display: block; }
+
+  /* features */
+  section { padding: 88px 0; }
+  .section-title { font-family: var(--maru); font-weight: 700; font-size: clamp(26px, 4vw, 38px); line-height: 1.5; letter-spacing: .06em; margin: 0 0 16px; }
+  .section-lead { color: var(--sub); margin: 0; }
+  .feature { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+  .feature + .feature { margin-top: 120px; }
+  .feature:nth-child(even) .feature-media { order: -1; }
+  .feature-media { display: flex; justify-content: center; }
+  .feature-media .phone { position: static; width: min(280px, 72%); }
+  .feature-num { font-family: var(--maru); font-size: 13px; color: var(--sub); letter-spacing: .2em; margin: 0 0 8px; }
+  .feature ul { margin: 20px 0 0; padding: 0; list-style: none; color: var(--sub); font-size: 14px; }
+  .feature li { padding-left: 1.2em; position: relative; }
+  .feature li::before { content: ""; position: absolute; left: 0; top: .75em; width: 7px; height: 7px; background: var(--dot, var(--ink)); }
+
+  /* gallery */
+  .gallery-section { background: rgba(255, 255, 255, .55); border-block: 1px solid var(--line); }
+  .gallery-head { text-align: center; margin-bottom: 40px; }
+  .gallery {
+    display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory;
+    padding: 8px max(16px, calc((100% - 1080px) / 2)) 24px;
+    scrollbar-width: thin;
+  }
+  .gallery figure { flex: 0 0 auto; width: 220px; margin: 0; scroll-snap-align: center; }
+  .gallery img { width: 100%; aspect-ratio: 600 / 1225; object-fit: cover; object-position: top; border-radius: 14px; border: 1px solid var(--line); background: var(--bg); }
+  .gallery figcaption { text-align: center; font-size: 13px; color: var(--sub); margin-top: 10px; }
+  .gallery-note { text-align: center; font-size: 12px; color: var(--sub); margin: 8px 0 0; }
+
+  /* promises */
+  .promise-head { text-align: center; margin-bottom: 48px; }
+  .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .card { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px 22px; }
+  .card h3 { font-family: var(--maru); font-weight: 700; font-size: 17px; margin: 14px 0 8px; letter-spacing: .04em; }
+  .card p { margin: 0; font-size: 14px; color: var(--sub); line-height: 1.75; }
+  .card .swatch { width: 36px; height: 36px; border-radius: 8px; }
+
+  /* final cta */
+  .final { text-align: center; }
+  .final img.icon { width: 96px; height: 96px; margin: 0 auto 24px; filter: drop-shadow(0 8px 16px rgba(40, 32, 20, .15)); }
+  .final .section-title { margin-bottom: 8px; }
+  .final p { color: var(--sub); margin: 0 0 32px; }
+
+  /* footer */
+  footer { border-top: 1px solid var(--line); padding: 32px 0 48px; font-size: 13px; color: var(--sub); }
+  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; }
+  footer nav { display: flex; flex-wrap: wrap; gap: 8px 24px; }
+  footer a { text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  @media (max-width: 860px) {
+    .hero { padding-top: 16px; }
+    .hero .wrap { grid-template-columns: 1fr; gap: 32px; text-align: center; }
+    .hero .lead { margin-inline: auto; }
+    .feature { grid-template-columns: 1fr; gap: 36px; text-align: center; }
+    .feature:nth-child(even) .feature-media { order: 0; }
+    .feature ul { display: inline-block; text-align: left; }
+    .feature + .feature { margin-top: 88px; }
+    .cards { grid-template-columns: repeat(2, 1fr); }
+    section { padding: 72px 0; }
+  }
+  @media (max-width: 520px) {
+    .header-cta { display: none; }
+    .cards { grid-template-columns: 1fr; }
+    .gallery figure { width: 170px; }
+    .themes button { font-size: 12px; padding-right: 12px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .phone img, .store-btn { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="./"><img src="img/icon.png" alt="" width="36" height="36">ヒトイロ <small>色だけ日記</small></a>
+    <a class="header-cta" href="https://apps.apple.com/app/id6821360700">App Store で見る</a>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">色だけ日記</p>
+        <h1>今日の気分を、<br>色ひとつで。</h1>
+        <p class="lead">文章も写真もいりません。その日の気分に近い色を1色えらぶだけ。続けるうちに、カレンダーがあなただけの色の模様になっていきます。</p>
+        <a class="store-btn" href="https://apps.apple.com/app/id6821360700">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.37 12.6c-.02-2.3 1.88-3.4 1.96-3.46-1.07-1.56-2.73-1.78-3.32-1.8-1.41-.14-2.76.83-3.48.83-.72 0-1.82-.81-3-.79-1.54.02-2.96.9-3.76 2.27-1.6 2.78-.41 6.9 1.15 9.15.76 1.1 1.67 2.34 2.86 2.3 1.15-.05 1.58-.74 2.97-.74 1.38 0 1.78.74 2.99.72 1.24-.02 2.02-1.12 2.77-2.23.87-1.28 1.23-2.52 1.25-2.58-.03-.01-2.4-.92-2.42-3.66zM14.1 5.86c.63-.77 1.06-1.83.94-2.9-.91.04-2.02.61-2.67 1.37-.58.67-1.09 1.76-.96 2.8 1.02.08 2.06-.52 2.69-1.27z"/></svg>
+          <span><small>ダウンロード</small><strong>App Store</strong></span>
+        </a>
+        <p class="note">無料・iPhone 向け<br>※ 画面下にバナー広告が1つ表示されます</p>
+      </div>
+
+      <div>
+        <div class="stage swap" aria-label="アプリの画面">
+          <div class="phone p1"><img data-kind="record" src="img/green-record.webp" alt="記録画面。カラーピッカーで今日の色を選ぶ" width="600" height="1225"></div>
+          <div class="phone p2"><img data-kind="month" src="img/green-month.webp" alt="月のカレンダー。毎日の色でマスが塗られている" width="600" height="1225"></div>
+          <div class="phone p3"><img data-kind="year" src="img/green-year.webp" alt="年のカレンダー。一年分の色が模様のように並ぶ" width="600" height="1225"></div>
+        </div>
+        <ul class="themes" id="themes">
+          <li><button type="button" data-theme="green" aria-pressed="true"><i style="background:#6FBF6A"></i>若葉の年</button></li>
+          <li><button type="button" data-theme="pink" aria-pressed="false"><i style="background:#D9566E"></i>紅の年</button></li>
+          <li><button type="button" data-theme="autumn" aria-pressed="false"><i style="background:#B8553A"></i>秋の年</button></li>
+          <li><button type="button" data-theme="sun" aria-pressed="false"><i style="background:#D9A441"></i>山吹の年</button></li>
+          <li><button type="button" data-theme="dusk" aria-pressed="false"><i style="background:#9C88B0"></i>夕暮れの年</button></li>
+          <li><button type="button" data-theme="pastel" aria-pressed="false"><i style="background:#D7B3E6"></i>パステルの年</button></li>
+        </ul>
+        <p class="themes-label">色を押すと、別の一年に切り替わります</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="strip" aria-hidden="true" id="strip"></div>
+
+  <section id="features">
+    <div class="wrap">
+      <div class="feature" style="--dot:#C0558A">
+        <div>
+          <p class="feature-num">01 ― 記録</p>
+          <h2 class="section-title">直感で選ぶだけ。<br>言葉はいりません。</h2>
+          <p class="section-lead">アプリを開いて、色を選んで、保存。3タップで今日の記録はおしまいです。うまく言葉にできない日も、色なら残せます。</p>
+          <ul>
+            <li>1日1色。その日のうちなら何度でも塗り直せます</li>
+            <li>毎日18時に「今日の色は何色？」とそっとお知らせ</li>
+          </ul>
+        </div>
+        <div class="feature-media"><div class="phone"><img src="img/pink-record.webp" alt="記録画面" width="600" height="1225" loading="lazy"></div></div>
+      </div>
+
+      <div class="feature" style="--dot:#B8553A">
+        <div>
+          <p class="feature-num">02 ― 色</p>
+          <h2 class="section-title">プリセットはなし。<br>毎日、色を選び直す。</h2>
+          <p class="section-lead">用意された色から選ぶのではなく、色相も濃さも自由に。昨日と同じ赤でも、今日は少しだけくすんでいるかもしれません。</p>
+          <ul>
+            <li>色に意味づけや点数はつけません</li>
+            <li>その日の色は、その日だけのもの</li>
+          </ul>
+        </div>
+        <div class="feature-media"><div class="phone"><img src="img/autumn-record.webp" alt="記録画面で色相と濃さを選んでいる様子" width="600" height="1225" loading="lazy"></div></div>
+      </div>
+
+      <div class="feature" style="--dot:#4A78B8">
+        <div>
+          <p class="feature-num">03 ― カレンダー</p>
+          <h2 class="section-title">飾らない画面で、<br>あなたの色が主役に。</h2>
+          <p class="section-lead">日付の数字も、文字もない。白い展示室のように、色だけを静かに並べます。</p>
+          <ul>
+            <li>過ぎた日は塗り直せません。空白の日も、そのままに</li>
+            <li>記録した日は、色のマスがひとつずつ増えていきます</li>
+          </ul>
+        </div>
+        <div class="feature-media"><div class="phone"><img src="img/blue-month.webp" alt="月のカレンダー。青系の色が並ぶ" width="600" height="1225" loading="lazy"></div></div>
+      </div>
+
+      <div class="feature" style="--dot:#4E9B57">
+        <div>
+          <p class="feature-num">04 ― ふり返り</p>
+          <h2 class="section-title">一年分の色が、<br>あなただけの模様に。</h2>
+          <p class="section-lead">ピンチ操作で、月の表示から年の表示へ。一年をまるごと眺めると、季節や気分の流れが模様になって見えてきます。</p>
+          <ul>
+            <li>月表示と年表示はピンチやボタンで切り替え</li>
+            <li>年表示で日を押すと、その日の月へ戻れます</li>
+          </ul>
+        </div>
+        <div class="feature-media"><div class="phone"><img src="img/green-year.webp" alt="年のカレンダー。緑系の色が模様のように並ぶ" width="600" height="1225" loading="lazy"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery-section" aria-labelledby="gallery-title">
+    <div class="wrap gallery-head">
+      <h2 class="section-title" id="gallery-title">どんな一年になるかは、<br>あなた次第。</h2>
+      <p class="section-lead">同じアプリでも、選ぶ色が違えば、まったく違う模様になります。</p>
+    </div>
+    <div class="gallery">
+      <figure><img src="img/green-year.webp" alt="緑の多い一年" width="600" height="1225" loading="lazy"><figcaption>若葉の年</figcaption></figure>
+      <figure><img src="img/pink-year.webp" alt="赤とピンクの多い一年" width="600" height="1225" loading="lazy"><figcaption>紅の年</figcaption></figure>
+      <figure><img src="img/autumn-year.webp" alt="赤茶とオリーブの多い一年" width="600" height="1225" loading="lazy"><figcaption>秋の年</figcaption></figure>
+      <figure><img src="img/blue-year.webp" alt="青の多い一年" width="600" height="1225" loading="lazy"><figcaption>青の年</figcaption></figure>
+      <figure><img src="img/sun-year.webp" alt="黄色とオレンジの多い一年" width="600" height="1225" loading="lazy"><figcaption>山吹の年</figcaption></figure>
+      <figure><img src="img/dusk-year.webp" alt="くすんだ色の多い一年" width="600" height="1225" loading="lazy"><figcaption>夕暮れの年</figcaption></figure>
+      <figure><img src="img/pastel-year.webp" alt="淡い色の多い一年" width="600" height="1225" loading="lazy"><figcaption>パステルの年</figcaption></figure>
+    </div>
+    <p class="gallery-note">※ 画面はイメージです</p>
+  </section>
+
+  <section aria-labelledby="promise-title">
+    <div class="wrap">
+      <div class="promise-head">
+        <h2 class="section-title" id="promise-title">記録は端末の中だけ。<br>登録もいりません。</h2>
+        <p class="section-lead">ダウンロードしたら、すぐに今日の色から始められます。</p>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <div class="swatch" style="background:#8FC79A"></div>
+          <h3>アカウント不要</h3>
+          <p>メールアドレスもログインもいりません。</p>
+        </div>
+        <div class="card">
+          <div class="swatch" style="background:#9AB5DB"></div>
+          <h3>記録は端末の中に</h3>
+          <p>選んだ色はあなたのiPhoneにだけ保存され、外へ送られることはありません。</p>
+        </div>
+        <div class="card">
+          <div class="swatch" style="background:#E3A7B4"></div>
+          <h3>見せない日記</h3>
+          <p>フォローも、いいねも、ランキングもありません。誰にも見られない、自分だけの記録です。</p>
+        </div>
+        <div class="card">
+          <div class="swatch" style="background:#E5C27A"></div>
+          <h3>無料で使えます</h3>
+          <p>課金はありません。画面下にバナー広告が1つ表示されます。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final">
+    <div class="wrap">
+      <img class="icon" src="img/icon.png" alt="ヒトイロのアイコン" width="96" height="96" loading="lazy">
+      <h2 class="section-title">今日の色は、何色？</h2>
+      <p>ヒトイロで、今日から色の日記を。</p>
+      <a class="store-btn" href="https://apps.apple.com/app/id6821360700">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.37 12.6c-.02-2.3 1.88-3.4 1.96-3.46-1.07-1.56-2.73-1.78-3.32-1.8-1.41-.14-2.76.83-3.48.83-.72 0-1.82-.81-3-.79-1.54.02-2.96.9-3.76 2.27-1.6 2.78-.41 6.9 1.15 9.15.76 1.1 1.67 2.34 2.86 2.3 1.15-.05 1.58-.74 2.97-.74 1.38 0 1.78.74 2.99.72 1.24-.02 2.02-1.12 2.77-2.23.87-1.28 1.23-2.52 1.25-2.58-.03-.01-2.4-.92-2.42-3.66zM14.1 5.86c.63-.77 1.06-1.83.94-2.9-.91.04-2.02.61-2.67 1.37-.58.67-1.09 1.76-.96 2.8 1.02.08 2.06-.52 2.69-1.27z"/></svg>
+        <span><small>ダウンロード</small><strong>App Store</strong></span>
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav>
+      <a href="https://3tuptup3.github.io/hitoiro-privacy/">プライバシーポリシー</a>
+      <a href="mailto:hitoiro@kaistation.com?subject=%E3%83%92%E3%83%88%E3%82%A4%E3%83%AD%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">お問い合わせ</a>
+    </nav>
+    <small>&copy; 2026 ヒトイロ</small>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    // 区切りの色帯（各テーマの代表色を並べる）
+    var stripColors = ["#A9D19A","#6FBF6A","#3E8E4F","#8FC7B0","#9AB5DB","#4A78B8","#2E4A8A","#9C88B0","#D7B3E6","#E3A7B4","#D9566E","#A8323E","#B8553A","#7E8A44","#D9A441","#E5C27A","#C9A27A","#E8E0CF","#8FC79A","#5B9BD5","#C0558A","#D97A54","#6B8E4E","#B6A3D6","#F0D8A8","#7FB8C9","#B04A5A","#94B86A"];
+    var strip = document.getElementById("strip");
+    stripColors.forEach(function (c) { var s = document.createElement("span"); s.style.background = c; strip.appendChild(s); });
+
+    // ヒーローのテーマ切り替え
+    var buttons = Array.prototype.slice.call(document.querySelectorAll("#themes button"));
+    var imgs = document.querySelectorAll(".stage img");
+    var order = buttons.map(function (b) { return b.dataset.theme; });
+    var current = 0, timer = null;
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    order.forEach(function (t) {
+      ["record", "month", "year"].forEach(function (k) { var i = new Image(); i.src = "img/" + t + "-" + k + ".webp"; });
+    });
+
+    function show(index) {
+      current = index;
+      var theme = order[index];
+      buttons.forEach(function (b, i) { b.setAttribute("aria-pressed", i === index ? "true" : "false"); });
+      imgs.forEach(function (img) {
+        img.classList.add("fading");
+        setTimeout(function () {
+          img.src = "img/" + theme + "-" + img.dataset.kind + ".webp";
+          img.classList.remove("fading");
+        }, reduce ? 0 : 250);
+      });
+    }
+
+    buttons.forEach(function (b, i) {
+      b.addEventListener("click", function () { stop(); show(i); });
+    });
+
+    function stop() { if (timer) { clearInterval(timer); timer = null; } }
+    if (!reduce) {
+      timer = setInterval(function () { show((current + 1) % order.length); }, 4500);
+    }
+  })();
+</script>
+</body>
+</html>
