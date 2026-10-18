@@ -217,15 +217,15 @@
           <div class="phone p2"><img data-kind="record" src="img/green-record.webp" alt="記録画面。カラーピッカーで今日の色を選ぶ" width="600" height="1225"></div>
           <div class="phone p3"><img data-kind="year" src="img/green-year.webp" alt="年のカレンダー。一年分の色が模様のように並ぶ" width="600" height="1225"></div>
         </div>
-        <ul class="themes" id="themes">
-          <li><button type="button" data-theme="green" aria-pressed="true"><i style="background:#6FBF6A"></i>若葉の年</button></li>
-          <li><button type="button" data-theme="pink" aria-pressed="false"><i style="background:#D9566E"></i>紅の年</button></li>
-          <li><button type="button" data-theme="autumn" aria-pressed="false"><i style="background:#B8553A"></i>秋の年</button></li>
-          <li><button type="button" data-theme="sun" aria-pressed="false"><i style="background:#D9A441"></i>山吹の年</button></li>
-          <li><button type="button" data-theme="dusk" aria-pressed="false"><i style="background:#9C88B0"></i>夕暮れの年</button></li>
-          <li><button type="button" data-theme="pastel" aria-pressed="false"><i style="background:#D7B3E6"></i>パステルの年</button></li>
+        <ul class="themes" id="themes" aria-label="記録の例">
+          <li><button type="button" data-theme="green" aria-pressed="true"><i style="background:#6FBF6A"></i>Aさん</button></li>
+          <li><button type="button" data-theme="pink" aria-pressed="false"><i style="background:#D9566E"></i>Bさん</button></li>
+          <li><button type="button" data-theme="autumn" aria-pressed="false"><i style="background:#B8553A"></i>Cさん</button></li>
+          <li><button type="button" data-theme="sun" aria-pressed="false"><i style="background:#D9A441"></i>Dさん</button></li>
+          <li><button type="button" data-theme="dusk" aria-pressed="false"><i style="background:#9C88B0"></i>Eさん</button></li>
+          <li><button type="button" data-theme="pastel" aria-pressed="false"><i style="background:#D7B3E6"></i>Fさん</button></li>
         </ul>
-        <p class="themes-label">色を押すと、別の一年に切り替わります</p>
+        <p class="themes-label">記録のイメージです。押すと、別の人の例に切り替わります</p>
       </div>
     </div>
   </div>
@@ -253,8 +253,8 @@
           <h2 class="section-title">プリセットはなし。<br>毎日、色を選び直す。</h2>
           <p class="section-lead">用意された色から選ぶのではなく、色相も濃さも自由に。昨日と同じ赤でも、今日は少しだけくすんでいるかもしれません。</p>
           <ul>
-            <li>色に意味づけや点数はつけません</li>
-            <li>その日の色は、その日だけのもの</li>
+            <li>似た色が続く日も、まったく違う色の日も</li>
+            <li>色にどんな気持ちを込めるかは、あなたの自由</li>
           </ul>
         </div>
         <div class="feature-media"><div class="phone"><img src="img/autumn-record.webp" alt="記録画面で色相と濃さを選んでいる様子" width="600" height="1225" loading="lazy"></div></div>
@@ -277,7 +277,7 @@
         <div>
           <p class="feature-num">04 ― ふり返り</p>
           <h2 class="section-title">一年分の色が、<br>あなただけの模様に。</h2>
-          <p class="section-lead">ピンチ操作で、月の表示から年の表示へ。一年をまるごと眺めると、季節や気分の流れが模様になって見えてきます。</p>
+          <p class="section-lead">ピンチ操作で、月の表示から年の表示へ。あとからまとめて見返すと、毎日ばらばらに選んだ色が、ひとつの模様になっています。思わぬ発見があるかもしれません。</p>
           <ul>
             <li>月表示と年表示はピンチやボタンで切り替え</li>
             <li>年表示で日を押すと、その日の月へ戻れます</li>
@@ -290,17 +290,17 @@
 
   <section class="gallery-section" aria-labelledby="gallery-title">
     <div class="wrap gallery-head">
-      <h2 class="section-title" id="gallery-title">どんな一年になるかは、<br>あなた次第。</h2>
-      <p class="section-lead">同じアプリでも、選ぶ色が違えば、まったく違う模様になります。</p>
+      <h2 class="section-title" id="gallery-title">同じ模様は、<br>ひとつもない。</h2>
+      <p class="section-lead">毎日その日の色を選んでいるだけなのに、並べてみると人それぞれの模様に。<br>どんな模様になるかは、見返すまでのお楽しみです。</p>
     </div>
     <div class="gallery">
-      <figure><img src="img/green-year.webp" alt="緑の多い一年" width="600" height="1225" loading="lazy"><figcaption>若葉の年</figcaption></figure>
-      <figure><img src="img/pink-year.webp" alt="赤とピンクの多い一年" width="600" height="1225" loading="lazy"><figcaption>紅の年</figcaption></figure>
-      <figure><img src="img/autumn-year.webp" alt="赤茶とオリーブの多い一年" width="600" height="1225" loading="lazy"><figcaption>秋の年</figcaption></figure>
-      <figure><img src="img/blue-year.webp" alt="青の多い一年" width="600" height="1225" loading="lazy"><figcaption>青の年</figcaption></figure>
-      <figure><img src="img/sun-year.webp" alt="黄色とオレンジの多い一年" width="600" height="1225" loading="lazy"><figcaption>山吹の年</figcaption></figure>
-      <figure><img src="img/dusk-year.webp" alt="くすんだ色の多い一年" width="600" height="1225" loading="lazy"><figcaption>夕暮れの年</figcaption></figure>
-      <figure><img src="img/pastel-year.webp" alt="淡い色の多い一年" width="600" height="1225" loading="lazy"><figcaption>パステルの年</figcaption></figure>
+      <figure><img src="img/green-year.webp" alt="記録の例：Aさんの一年" width="600" height="1225" loading="lazy"><figcaption>Aさんの場合</figcaption></figure>
+      <figure><img src="img/pink-year.webp" alt="記録の例：Bさんの一年" width="600" height="1225" loading="lazy"><figcaption>Bさんの場合</figcaption></figure>
+      <figure><img src="img/autumn-year.webp" alt="記録の例：Cさんの一年" width="600" height="1225" loading="lazy"><figcaption>Cさんの場合</figcaption></figure>
+      <figure><img src="img/sun-year.webp" alt="記録の例：Dさんの一年" width="600" height="1225" loading="lazy"><figcaption>Dさんの場合</figcaption></figure>
+      <figure><img src="img/dusk-year.webp" alt="記録の例：Eさんの一年" width="600" height="1225" loading="lazy"><figcaption>Eさんの場合</figcaption></figure>
+      <figure><img src="img/pastel-year.webp" alt="記録の例：Fさんの一年" width="600" height="1225" loading="lazy"><figcaption>Fさんの場合</figcaption></figure>
+      <figure><img src="img/blue-year.webp" alt="記録の例：Gさんの一年" width="600" height="1225" loading="lazy"><figcaption>Gさんの場合</figcaption></figure>
     </div>
     <p class="gallery-note">※ 画面はイメージです</p>
   </section>
